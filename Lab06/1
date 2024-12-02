@@ -1,0 +1,89 @@
+
+
+
+INSERT INTO Products (ProductName, Price) VALUES ('Apple', 0.50), ('Banana', 0.30);
+
+INSERT INTO Cars (CarType, MaxAmount) VALUES ('Truck', 1500);
+
+INSERT INTO Sales (ProductID,CarID, SaleDate, Quantity) VALUES (1,1, '2024-01-01', 150), (2,1, '2024-01-02', 200);
+
+
+
+select * from Products;
+
+select * from Sales;
+
+select * from Cars;
+
+
+--3.	Добавить данные в базу данных SQLite.
+
+
+insert into Cars(CarType,MaxAmount) values('Minibus',7);
+
+insert into Products(ProductName,Price) values ('Oreo',20.4),('MilkyWay',50);
+
+INSERT INTO Sales (ProductID,CarID, SaleDate, Quantity) VALUES (3,2, '2024-02-21', 1350), (4,2, '2024-04-25', 300);
+
+
+--4.	Продемонстрировать обновление, добавление и удаление данных в подчиненной таблице базы данных SQLite. Обработка должна демонстрировать особенности применения внешних ключей в базе данных SQLite и использовать транзакции. 
+
+-- Добавление
+
+begin transaction;
+insert into Cars(CarID,CarType,MaxAmount) values(1,'MicroTruck',450);
+commit;
+
+-- Обновление
+
+BEGIN TRANSACTION;
+UPDATE Products SET ProductName = 'ABC' WHERE (select ProductID from  Sales) = ProductID ;
+COMMIT;
+
+-- Удаление
+
+BEGIN TRANSACTION;
+DELETE FROM Products WHERE ProductID = 2;
+COMMIT;
+
+
+--5.	Создать представление в базе данных SQLite. 
+
+create view AllTableView as
+select s.SaleID , c.CarID, p.ProductID , p.ProductName , c.CarType , s.SaleDate, s.Quantity , p.Price
+from Sales s
+join Products p on p.ProductID = s.ProductID
+join Cars c on c.CarID = s.CarID;
+
+
+select * from AllTableView;
+
+
+--6.	Создать необходимые индексы в базе данных SQLite.
+
+create index IDX_CARS_AMOUNT on Cars(MaxAmount);
+create index IDX_PRODUCS_PRICE on Products(Price);
+create index IDX_PRODUCS_NAME on Products(ProductName);
+create index IDX_SALES_QUANTITY on Sales(Quantity);
+create index IDX_SALES_DATE on Sales(SaleDate);
+
+--7.	Создать триггер в базе данных SQLite.
+
+CREATE TRIGGER SALES_ADDED
+         AFTER INSERT
+            ON Sales
+      FOR EACH ROW
+BEGIN
+    UPDATE Sales
+       SET SaleDate = CURRENT_DATE
+     WHERE SaleID = NEW.SaleID;
+END;
+
+INSERT INTO Sales (ProductID,CarID, SaleDate, Quantity) VALUES (3,4, '2024-03-21', 1150);
+
+select * from Sales;
+
+rollback;
+--8.	Продемонстрировать использование созданных объектов в приложении
+
+
