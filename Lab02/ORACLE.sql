@@ -24,6 +24,19 @@ VALUES ('Medium box of bananas', 30, 100, 'BOX', 'Minsk', 'Berlin', 1);
 INSERT INTO Cargo (description, weight, volume, bodyType, loadingAddress, uploadingAddress, clientId)
 VALUES ('Box of apples', 35, 105, 'BOX', 'Minsk', 'Moscow', 3);
 
+
+INSERT INTO Cargo (description, weight, volume, bodyType, loadingAddress, uploadingAddress, clientId)
+VALUES ('Box of grapes', 40, 120, 'BOX', 'Minsk', 'Paris', 1); -- CargoId = 5
+
+INSERT INTO Cargo (description, weight, volume, bodyType, loadingAddress, uploadingAddress, clientId)
+VALUES ('Box of pears', 45, 130, 'BOX', 'Minsk', 'Rome', 1); -- CargoId = 6
+
+
+INSERT INTO Cargo (description, weight, volume, bodyType, loadingAddress, uploadingAddress, clientId)
+VALUES ('Box of milk', 45, 130, 'BOX', 'Minsk', 'Washington', 1); -- CargoId = 6
+
+
+
 INSERT INTO Vehicles (driverId, model, type, capacity, licencePlate, brand)
 VALUES (2, 'Track', 'Big', 3000, '8029', 'Mercedes-Benz');
 
@@ -43,6 +56,21 @@ INSERT INTO Routes (distance, loadingDate, uploadingDate)
 VALUES (100, SYSDATE, SYSDATE);
 --------------------------------------
 
+
+
+-- Заказы с пересечением (Один и тот же заказ встречается у разных грузов)
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
+VALUES (5, 1, 9000.00, 'completed', TO_DATE('2023-04-10', 'YYYY-MM-DD'), 1); -- OrderId = 10
+
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
+VALUES (6, 1, 9000.00, 'completed', TO_DATE('2023-04-10', 'YYYY-MM-DD'), 1); -- OrderId = 11
+
+-- Дублируем заказ в другой груз (Пересечение)
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
+VALUES (5, 1, 7500.00, 'completed', TO_DATE('2023-04-15', 'YYYY-MM-DD'), 2); -- OrderId = 12
+
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
+VALUES (6, 1, 7500.00, 'completed', TO_DATE('2023-04-15', 'YYYY-MM-DD'), 2); -- OrderId = 12 (Пересечение!)
 
 
 -- Данные для типа транспорта "Big"
@@ -83,6 +111,9 @@ VALUES (1, 2, 6000.00, 'completed', TO_DATE('2023-03-10', 'YYYY-MM-DD'), 2); -- 
 INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
 VALUES (2, 2, 7000.00, 'completed', TO_DATE('2023-03-15', 'YYYY-MM-DD'), 2); -- Март
 
+
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, createdAt, orderRoute)
+VALUES (2, 3, 7000.00, 'completed', TO_DATE('2023-03-15', 'YYYY-MM-DD'), 2); -- Март
 
 
 

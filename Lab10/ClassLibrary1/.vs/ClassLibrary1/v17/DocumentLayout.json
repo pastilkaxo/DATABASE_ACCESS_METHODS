@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0412\u043B\u0430\u0434\\Desktop\\\u041C\u0421\u041E\u0425\u0410\u0414\\DATABASE_ACCESS_METHODS\\Lab10\\ClassLibrary1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{85BDE327-D3BF-430E-A8DF-58A5911E73EB}|ClassLibrary1\\ClassLibrary1.csproj|c:\\users\\\u0432\u043B\u0430\u0434\\desktop\\\u043C\u0441\u043E\u0445\u0430\u0434\\database_access_methods\\lab10\\classlibrary1\\classlibrary1\\routetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85BDE327-D3BF-430E-A8DF-58A5911E73EB}|ClassLibrary1\\ClassLibrary1.csproj|solutionrelative:classlibrary1\\routetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85BDE327-D3BF-430E-A8DF-58A5911E73EB}|ClassLibrary1\\ClassLibrary1.csproj|c:\\users\\\u0432\u043B\u0430\u0434\\desktop\\\u043C\u0441\u043E\u0445\u0430\u0434\\database_access_methods\\lab10\\classlibrary1\\classlibrary1\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85BDE327-D3BF-430E-A8DF-58A5911E73EB}|ClassLibrary1\\ClassLibrary1.csproj|solutionrelative:classlibrary1\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RouteType.cs",
+              "DocumentMoniker": "C:\\Users\\\u0412\u043B\u0430\u0434\\Desktop\\\u041C\u0421\u041E\u0425\u0410\u0414\\DATABASE_ACCESS_METHODS\\Lab10\\ClassLibrary1\\ClassLibrary1\\RouteType.cs",
+              "RelativeDocumentMoniker": "ClassLibrary1\\RouteType.cs",
+              "ToolTip": "C:\\Users\\\u0412\u043B\u0430\u0434\\Desktop\\\u041C\u0421\u041E\u0425\u0410\u0414\\DATABASE_ACCESS_METHODS\\Lab10\\ClassLibrary1\\ClassLibrary1\\RouteType.cs",
+              "RelativeToolTip": "ClassLibrary1\\RouteType.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAcwBsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T08:33:21.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\\u0412\u043B\u0430\u0434\\Desktop\\\u041C\u0421\u041E\u0425\u0410\u0414\\DATABASE_ACCESS_METHODS\\Lab10\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "RelativeDocumentMoniker": "ClassLibrary1\\Class1.cs",
+              "ToolTip": "C:\\Users\\\u0412\u043B\u0430\u0434\\Desktop\\\u041C\u0421\u041E\u0425\u0410\u0414\\DATABASE_ACCESS_METHODS\\Lab10\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "RelativeToolTip": "ClassLibrary1\\Class1.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:40:44.94Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
