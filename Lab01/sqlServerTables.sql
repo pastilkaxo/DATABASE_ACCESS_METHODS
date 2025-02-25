@@ -92,3 +92,48 @@ drop table Cargo;
 drop table Vehicles;
 drop table Users;
 drop table Roles;
+
+
+
+
+-- Вставка пользователей
+INSERT INTO Users (firstName, lastName, fatherName, email, password, phone, role, INN, userType, verified) VALUES
+('Иван', 'Иванов', 'Иванович', 'ivan@example.com', 'password1', '1234567890', 1, '123456789012', 'ИП', 1),
+('Петр', 'Петров', 'Петрович', 'petr@example.com', 'password2', '0987654321', 2, '987654321012', 'Юрид. лицо', 0),
+('Сидор', 'Сидоров', 'Сидорович', 'sidor@example.com', 'password3', '5555555555', 3, '111111111111', 'Физ. лицо', 0);
+
+-- Вставка грузов
+INSERT INTO Cargo (description, weight, volume, bodyType, loadingAddress, uploadingAddress, clientId) VALUES
+('Груз 1', 1000.00, 1.00, 'сухой', 'Улица 1', 'Улица 2', 1),
+('Груз 2', 2000.00, 2.00, 'жидкий', 'Улица 3', 'Улица 4', 2),
+('Груз 3', 1500.00, 1.50, 'смешанный', 'Улица 5', 'Улица 6', 1);
+
+-- Вставка транспортных средств
+INSERT INTO Vehicles (driverId, model, type, capacity, licencePlate, brand) VALUES
+(2, 'Модель 1', 'Грузовой', 5000, 23, 'Марка 1'),
+(3, 'Модель 2', 'Легковой', 1500, 24, 'Марка 2'),
+(4, 'Модель 3', 'Грузовой', 7000, 123, 'Марка 3');
+
+-- Вставка маршрутов
+INSERT INTO Routes (distance, loadingDate, uploadingDate) VALUES
+(100, '2025-02-25 10:00:00', '2025-02-25 12:00:00'),
+(200, '2025-02-26 10:00:00', '2025-02-26 12:00:00'),
+(150, '2025-02-27 10:00:00', '2025-02-27 12:00:00');
+
+-- Вставка заказов
+INSERT INTO Orders (orderCargo, orderVehicle, price, status, orderRoute) VALUES
+(1, 5, 5000.00, 'pending', 1),
+(2, 6, 10000.00, 'completed',1),
+(3, 7, 7500.00, 'pending',1);
+
+-- Вставка платежей
+INSERT INTO Payments (paymentOrder, amount, paymentMethod, paymentStatus) VALUES
+(10, 5000.00, 'credit_card', 'completed'),
+(11, 10000.00, 'bank_transfer', 'pending'),
+(12, 7500.00, 'credit_card', 'completed');
+
+-- Вставка отзывов
+INSERT INTO Reviews (reviewOrder, reviewerId, reviewComment, reviewedVehicle, rating) VALUES
+(10, 3, 'Отличный груз!', 5, 10),
+(11, 4, 'Доставка прошла без проблем.', 6, 9),
+(12, 5, 'Всё понравилось.', 7, 8);

@@ -8,10 +8,10 @@ insert into Roles values
 ('shipper');
 
 select * from Users;
-insert into Users (firstName,lastName,fatherName,email,password,phone,role,INN,userType,verified,parentUserID)
+insert into Users (firstName,lastName,fatherName,email,password,phone,role,INN,userType,verified)
 values
-('Cristiano','Ronaldo',null,'cr7.exmaple@.com','cr7isgood','80291313441',2,'HFEHA233KE','ёрид. лицо',1,null ),
-('Vladislav','Lemiashusky','Olegovich','vlad.lemeshok@gmail.com','qwerty12345','80290384288',3,'FFEJ324BBJE','ёрид. лицо',1 ,1);
+('Cristiano','Ronaldo',null,'cr7.exmaple@.com','cr7isgood','80291313441',2,'HFEHA233KE','ёрид. лицо',1 ),
+('Vladislav','Lemiashusky','Olegovich','vlad.lemeshok@gmail.com','qwerty12345','80290384288',3,'FFEJ324BBJE','ёрид. лицо',1 );
 
 
 select * from Cargo;
