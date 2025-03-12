@@ -1,17 +1,72 @@
 --1.	Выполнить 5 запросов к данным в кубе, используя следующие функции языка MDX:
 
-
-
 --1.1.	Числовые;
 
+WITH  
+    MEMBER [Measures].[Total Orders] AS  
+        SUM([Orders].[Order Id].[Order Id].MEMBERS, [Measures].[Fact Orders Count])  
+
+    MEMBER [Measures].[Total Price] AS  
+        SUM([Orders].[Order Id].[Order Id].MEMBERS, [Measures].[Price])  
+
+    MEMBER [Measures].[Avg Price Per Order] AS  
+        IIF([Measures].[Total Orders] > 0,  
+            [Measures].[Total Price] / [Measures].[Total Orders],  
+            NULL)  
+
+SELECT  
+    NON EMPTY { [Measures].[Total Orders], [Measures].[Total Price], [Measures].[Avg Price Per Order] } ON COLUMNS
+FROM [Lab13]
 
 
 
 --1.2.	Обработки строковых значений;
 
+WITH MEMBER [Measures].[Cargo Set] AS  
+    SetToStr([Cargo].[Description].MEMBERS)  
+
+SELECT  
+    { [Measures].[Cargo Set] } ON COLUMNS  
+FROM [Lab13]
+
+
+
+
 --1.3.	Для наборов;
+
+ SELECT NON EMPTY { [Measures].[Fact Orders Count], [Measures].[Price] } ON COLUMNS, 
+ NON EMPTY { ([Orders].[Order Id].[Order Id].ALLMEMBERS ) } 
+ DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_UNIQUE_NAME ON ROWS FROM [Lab13]
+
+
 
 --1.4.	Для элемента измерения;
 
---1.5.	Для иерархий;
+WITH MEMBER Measures.DimensionsCount AS Dimensions(0).Members.Count  
+SELECT measures.DimensionsCount on 0  
+FROM [Lab13]
 
+SELECT  
+{( [Orders].[Order Id].&[12], [Measures].[Price] ).Item(0)} ON 0  
+FROM [Lab13]
+
+
+SELECT [Cargo].[Description].[Big box of apples].NextMember ON 0  
+FROM [Lab13]  
+
+
+--1.5.	Для иерархий;
+  
+WITH  
+MEMBER [Measures].[HierarchyDetails] AS  
+    "Hierarchy Name: " + [Cargo].[Description].[Big box of apples].Hierarchy.NAME + 
+    ", Levels: " + CStr([Cargo].[Description].[Big box of apples].Hierarchy.LEVELS.COUNT) + 
+    ", Parent: " + [Cargo].[Description].[Big box of apples].Hierarchy.PARENT.NAME
+
+SELECT  
+    { [Measures].[HierarchyDetails] } ON COLUMNS,  
+    { [Cargo].[Description].[Big box of apples] } ON ROWS  
+FROM [Lab13]
+
+SELECT [Fact Orders].[Fact Order Id].[1].LEVEL ON COLUMNS
+FROM [Lab13]
