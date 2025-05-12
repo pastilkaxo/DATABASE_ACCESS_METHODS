@@ -15,6 +15,9 @@ from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
 
 
+
+
+
 # 2.	Используя возможности SymPy - библиотека для символьных вычислений,
 # работа с производными, интегралами, пределами и алгебраическими выражениям:
 # 2.1.	Найдите производную функции f(x) = x2 + 1;
